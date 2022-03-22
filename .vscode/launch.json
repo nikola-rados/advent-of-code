@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Day 1",
+            "type": "python",
+            "request": "launch",
+            "program": "advent-of-code/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["-d", "1", "-f", "data/day1/input.txt",]
+        },
+        {
+            "name": "Python: Day 1 (example data)",
+            "type": "python",
+            "request": "launch",
+            "program": "advent-of-code/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["-d", "1", "-f", "data/day1/example.txt",]
+        },
+    ]
+}
