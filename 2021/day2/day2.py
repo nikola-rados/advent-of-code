@@ -14,4 +14,5 @@ def file_to_pair_list(datapath):
 def run_challenges(datapath):
     sub = Submarine(move_commands=file_to_pair_list(datapath))
 
-    print(f"Part 1: {sub.calculate_position()}")
+    print(f"Part 1: {sub.simple_position()}")
+    print(f"Part 2: {sub.complex_position()}")

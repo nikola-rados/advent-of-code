@@ -19,15 +19,30 @@ class Submarine:
         ]
         return self._sonar_sweep(triple_step_sums)
 
-    def calculate_position(self):
+    def simple_position(self):
         horizontal, depth = 0, 0
 
         for direction, distance in self.move_commands:
-            if direction == "forward":
-                horizontal += distance
+            if direction == "down":
+                depth += distance
             elif direction == "up":
                 depth -= distance
-            elif direction == "down":
-                depth += distance
+            elif direction == "forward":
+                horizontal += distance
 
         return horizontal * depth
+
+    def complex_position(self):
+        horizontal, depth, aim = 0, 0, 0
+
+        for direction, distance in self.move_commands:
+            if direction == "down":
+                aim += distance
+            elif direction == "up":
+                aim -= distance
+            elif direction == "forward":
+                horizontal += distance
+                depth += aim * distance
+
+        return horizontal * depth
+            
