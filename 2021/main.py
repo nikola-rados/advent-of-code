@@ -15,7 +15,7 @@ def main(day, datapath):
 
     elif day == 2:
         run_day2(datapath)
-    
+
     elif day == 3:
         print("Coming soon!")
 

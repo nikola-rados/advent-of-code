@@ -2,7 +2,7 @@ from turtle import numinput
 
 
 class Submarine:
-    def __init__(self, readings = [], move_commands = []):
+    def __init__(self, readings=[], move_commands=[]):
         self.readings = readings
         self.move_commands = move_commands
 
@@ -45,4 +45,3 @@ class Submarine:
                 depth += aim * distance
 
         return horizontal * depth
-            
