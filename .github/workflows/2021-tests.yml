@@ -1,0 +1,22 @@
+name: 2021 Tests
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Python 3
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          pip install -U pipenv
+          pipenv install --dev
+  
+      - name: Run tests with pytest
+        run: pipenv run pytest 2021/tests/

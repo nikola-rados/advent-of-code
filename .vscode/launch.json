@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Day 1",
+            "type": "python",
+            "request": "launch",
+            "program": "2021/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["-d", "1", "-f", "2021/data/day1/input.txt",]
+        },
+        {
+            "name": "Python: Day 1 (example data)",
+            "type": "python",
+            "request": "launch",
+            "program": "2021/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["-d", "1", "-f", "2021/data/day1/example.txt",]
+        },
+    ]
+}
