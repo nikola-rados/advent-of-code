@@ -9,7 +9,7 @@ def file_to_list(datapath):
 
 
 def run_challenges(datapath):
-    sub = Submarine(file_to_list(datapath))
+    sub = Submarine(readings=file_to_list(datapath))
 
     sub.simple_sonar_sweep()
     print(f"Part 1: {sub.simple_sonar_sweep()}")

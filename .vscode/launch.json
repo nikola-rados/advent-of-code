@@ -19,5 +19,23 @@
             "justMyCode": true,
             "args": ["-d", "1", "-f", "2021/data/day1/example.txt",]
         },
+        {
+            "name": "Python: Day 2",
+            "type": "python",
+            "request": "launch",
+            "program": "2021/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["-d", "2", "-f", "2021/data/day2/input.txt",]
+        },
+        {
+            "name": "Python: Day 2 (example data)",
+            "type": "python",
+            "request": "launch",
+            "program": "2021/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["-d", "2", "-f", "2021/data/day2/example.txt",]
+        },
     ]
 }
