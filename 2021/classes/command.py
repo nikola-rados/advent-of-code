@@ -1,4 +1,3 @@
-from msilib.schema import Directory
 from classes.direction import Direction
 
 
