@@ -26,9 +26,31 @@ def test_deep_sonar_sweep(test_readings: list[int], expected: int):
 @pytest.mark.parametrize(
     "test_commands, expected",
     [
-        ([Command(Direction.forward, 5), Command(Direction.up, 2), (Command(Direction.down, 3))], 5),
-        ([Command(Direction.up, 5), Command(Direction.up, 1), Command(Direction.down, 10), Command(Direction.forward, 5)], 20),
-        ([Command(Direction.down, 5), Command(Direction.up, 2), Command(Direction.forward, 10)], 30),
+        (
+            [
+                Command(Direction.forward, 5),
+                Command(Direction.up, 2),
+                (Command(Direction.down, 3)),
+            ],
+            5,
+        ),
+        (
+            [
+                Command(Direction.up, 5),
+                Command(Direction.up, 1),
+                Command(Direction.down, 10),
+                Command(Direction.forward, 5),
+            ],
+            20,
+        ),
+        (
+            [
+                Command(Direction.down, 5),
+                Command(Direction.up, 2),
+                Command(Direction.forward, 10),
+            ],
+            30,
+        ),
     ],
 )
 def test_simple_position(test_commands: list[Command], expected: int):
@@ -39,9 +61,33 @@ def test_simple_position(test_commands: list[Command], expected: int):
 @pytest.mark.parametrize(
     "test_commands, expected",
     [
-        ([Command(Direction.forward, 5), Command(Direction.up, 2), Command(Direction.down, 3)], 0),
-        ([Command(Direction.up, 5), Command(Direction.up, 1), Command(Direction.down, 10), Command(Direction.forward, 5)], 100),
-        ([Command(Direction.down, 5), Command(Direction.up, 2), Command(Direction.forward, 10), Command(Direction.up, 2), Command(Direction.forward, 2)], 384),
+        (
+            [
+                Command(Direction.forward, 5),
+                Command(Direction.up, 2),
+                Command(Direction.down, 3),
+            ],
+            0,
+        ),
+        (
+            [
+                Command(Direction.up, 5),
+                Command(Direction.up, 1),
+                Command(Direction.down, 10),
+                Command(Direction.forward, 5),
+            ],
+            100,
+        ),
+        (
+            [
+                Command(Direction.down, 5),
+                Command(Direction.up, 2),
+                Command(Direction.forward, 10),
+                Command(Direction.up, 2),
+                Command(Direction.forward, 2),
+            ],
+            384,
+        ),
     ],
 )
 def test_complex_position(test_commands: list[Command], expected: int):
