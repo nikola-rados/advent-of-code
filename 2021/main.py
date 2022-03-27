@@ -1,6 +1,7 @@
 import click
 from day1.day1 import run_challenges as run_day1
 from day2.day2 import run_challenges as run_day2
+from day3.day3 import run_challenges as run_day3
 
 
 @click.command()
@@ -17,7 +18,7 @@ def main(day: int, datapath: str):
         run_day2(datapath)
 
     elif day == 3:
-        print("Coming soon!")
+        run_day3(datapath)
 
 
 if __name__ == "__main__":

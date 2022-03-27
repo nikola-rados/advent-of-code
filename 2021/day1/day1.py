@@ -1,9 +1,10 @@
 from classes.submarine import Submarine
+import constants
 
 
 def file_to_list(datapath: str) -> list[int]:
-    with open(datapath, "r") as f:
-        data = [int(line.strip("\n")) for line in f.readlines()]
+    with open(datapath, constants.READ) as f:
+        data = [int(line.strip(constants.NEWLINE)) for line in f.readlines()]
 
     return data
 

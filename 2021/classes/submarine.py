@@ -1,11 +1,20 @@
 from classes.command import Command
 from classes.direction import Direction
+import numpy as np
+from functools import reduce
+import operator
 
 
 class Submarine:
-    def __init__(self, readings: list[int] = None, commands: Command = None):
+    def __init__(
+        self,
+        readings: list[int] = None,
+        commands: Command = None,
+        consumption=None,
+    ):
         self.readings = readings if readings else []
         self.commands = commands if commands else []
+        self.consumption = consumption
 
     def _sonar_sweep(self, readings: list[int]) -> int:
         return len([True for r1, r2 in zip(readings, readings[1:]) if r2 > r1])
@@ -46,3 +55,36 @@ class Submarine:
                 depth += aim * command.distance
 
         return horizontal * depth
+
+    def _determine_common_bit(self, target: str) -> bin:
+        print(self.consumption)
+        _, bits_len = self.consumption.shape
+        common_bits = ""
+
+        for i in range(bits_len):
+            col = list(self.consumption[:, i])
+            zeros = col.count(0)
+            ones = col.count(1)
+
+            op = {
+                "gamma": operator.lt,
+                "epsilon": operator.gt,
+            }[target]
+
+            if op(zeros, ones):
+                common_bits += "0"
+            else:
+                common_bits += "1"
+
+        return bin(int(common_bits, 2))
+
+    def _bits_to_int(self, bits):
+        return int(bits, 2)
+
+    def _calculate_power(self, values):
+        return reduce(lambda a, b: self._bits_to_int(a) * self._bits_to_int(b), values)
+
+    def power_consumption(self) -> int:
+        gamma = self._determine_common_bit("gamma")
+        epsilon = self._determine_common_bit("epsilon")
+        return self._calculate_power([gamma, epsilon])

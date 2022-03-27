@@ -1,13 +1,14 @@
 from classes.submarine import Submarine
 from classes.command import Command
 from classes.direction import Direction
+import constants
 
 
 def file_to_command_list(datapath: str) -> list[Command]:
-    with open(datapath, "r") as f:
+    with open(datapath, constants.READ) as f:
         data = []
         for line in f.readlines():
-            direction, distance = line.strip("\n").split(" ")
+            direction, distance = line.strip(constants.NEWLINE).split(constants.SPACE)
             data.append(Command(Direction[direction], int(distance)))
 
     return data
